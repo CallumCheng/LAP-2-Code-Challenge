@@ -9,7 +9,7 @@ app.use(express.json());
 // Routes
 const thoughtRoutes = require("./routes/thought");
 
-app.use("/", thoughtRoutes);
+app.use("/thought", thoughtRoutes);
 app.get("/", (req, res) => res.send("Welcome to Thoughts.FM"));
 
 module.exports = app;
