@@ -2,9 +2,9 @@ const Thought = require("../models/Thought");
 
 async function create(req, res) {
   try {
-    const { title } = await req.body;
-    const { author } = await req.body;
-    const { post } = await req.body;
+    const { title } = req.body;
+    const { author } = req.body;
+    const { post } = req.body;
 
     const thought = await Thought.create({ title, author, post });
 
@@ -20,19 +20,15 @@ async function create(req, res) {
 
 async function show(req, res) {
   try {
-    const thought = await Thought.findById(req.params.id);
+    const id = req.params.id;
+    const thought = await Thought.findById(id);
     res.status(200).json(thought);
   } catch (err) {
-    res.status(404).json({ err });
+    res.status(404).json({ message: "id not found" });
   }
 }
 
-// async function show(req, res) {
-//   try {
-//     const thought = await thought.findByURL(req.params)
-//   }
-// }
-
 module.exports = {
   create,
+  show,
 };
