@@ -29,9 +29,12 @@ class Thought {
   }
 
   static async findById(id) {
+    // ✅✅✅
     const data = await db.query("SELECT * FROM thought WHERE id = $1;", [id]);
     const thought = new Thought(data.rows[0]);
-    if (!post.id) {
+
+    console.log(id, thought);
+    if (!thought.id) {
       throw new Error("No posts found");
     }
     return thought;
