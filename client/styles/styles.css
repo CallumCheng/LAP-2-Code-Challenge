@@ -21,4 +21,19 @@ footer{
     text-align: center;
 }
 
+.display-posts {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    /* margin-left: 10%;
+    margin-right: 10%; */
+    /* width: 500px; */
+    
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
 
