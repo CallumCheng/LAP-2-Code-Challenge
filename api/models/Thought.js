@@ -10,6 +10,7 @@ class Thought {
   }
 
   static async create(data) {
+    // ✅✅✅
     try {
       const { title, author, post } = data;
 
@@ -25,6 +26,15 @@ class Thought {
     } catch (err) {
       console.error(err);
     }
+  }
+
+  static async findById(id) {
+    const data = await db.query("SELECT * FROM thought WHERE id = $1;", [id]);
+    const thought = new Thought(data.rows[0]);
+    if (!post.id) {
+      throw new Error("No posts found");
+    }
+    return thought;
   }
 }
 
