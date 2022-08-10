@@ -16,7 +16,7 @@ function newPost(e) {
         console.log(content.value)
 
 
-}
+}git 
 
 function sendPostToServer(form) {
     fetch(rootUrl,
