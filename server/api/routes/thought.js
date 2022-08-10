@@ -1,8 +1,9 @@
 const { Router } = require("express");
 
+const thoughtController = require("../controllers/thought");
 const thoughtRouter = Router();
 
-router.get("/", (req, res) => res.send("Hello World!"));
-router.post("/", (req, res) => res.send({}));
+// thoughtRouter.get("/", thoughtController.show);
+thoughtRouter.post("/", thoughtController.create);
 
 module.exports = thoughtRouter;
