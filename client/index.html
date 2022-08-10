@@ -9,21 +9,28 @@
     <title>Thoughts.FM</title>
 </head>
 <body>
-    <h1>Thoughts.FM - A Site For Anonymous Posting</h1>
+    <h1>Thoughts.FM - A Site For Anonymous Posts</h1>
 
     <section class="create-post">        
     <div class="form-center"></div>
     <form action="POST" id="form" data-type="post">
         <label for="title">Title</label>
         <input type="text" class="form-control" id="post-title" maxlength="100">
-        <label for="title">Your Name</label>
-        <input type="text" class="form-control" id="post-name" maxlength="20">
+        <label for="name">Your Name</label>
+        <input type="text" class="form-control" id="post-name"  maxlength="20">
 
         <label for="content">Your Story</label>
-        <textarea class="form-control" id="post-content" ></textarea>
+        <textarea class="form-control"  id="post-content" ></textarea>
         <label for="add-img"></label>
-        <button type="submit" class="submit-button">Submit</button>
+        <button type="submit" class="submit-button">Post</button>
     </form>
+
+    <div class="display-posts">
+        <h2 class = display-title> A Blog</h2>
+        <h2 class = display-name>Callum Cheng</h2>
+        <p class = display-content>This is</p>
+    </div>
+
 
 </section>
 </body>
