@@ -1,8 +1,9 @@
-const fsp = require("fs").promises;
+const db = require("../dbConfig");
 const path = require("path");
 
 class Thought {
   constructor(data) {
+    this.id = data.id;
     this.title = data.title;
     this.author = data.author;
     this.post = data.post;
@@ -10,30 +11,15 @@ class Thought {
 
   static async create(data) {
     try {
-      const thought = new Thought(data);
-      const thoughtData = JSON.stringify(thought);
+      const { title, author, post } = data;
 
-      console.log(thoughtData);
-      // create file
-      await fsp.writeFile(
-        path.join(__dirname, "..", "..", "db", "newThought.json"),
-        thoughtData
+      const newThought = await db.query(
+        "INSERT INTO thought (title, author, post) VALUES ($1, $2, $3) RETURNING *;",
+        [title, author, post]
       );
-      if (path.join(__dirname, "..", "..", "db", "newThought.json") == true) {
-        console.log(true);
-      }
+      const thought = new Thought(newThought.rows[0]);
 
-      // create thoughts object
-      const thoughts = { thoughts: thought };
-      console.log(thoughts);
-
-      // write data to file
-      // await fsp.appendFile(
-      //   path.join(__dirname, "..", "..", "db", "thoughts.json"),
-      //   thoughts
-      // );
-      //
-
+      console.log(thought);
       console.log("Posts recieved!✅");
       return thought;
     } catch (err) {
