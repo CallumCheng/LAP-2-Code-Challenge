@@ -11,8 +11,22 @@
 <body>
     <h1>Thoughts.FM - A Site For Anonymous Posting</h1>
 
+    <section class="create-post">        
+    <div class="form-center"></div>
+    <form action="POST" id="form" data-type="post">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="post-title" maxlength="100">
+        <label for="title">Your Name</label>
+        <input type="text" class="form-control" id="post-name" maxlength="20">
 
+        <label for="content">Your Story</label>
+        <textarea class="form-control" id="post-content" ></textarea>
+        <label for="add-img"></label>
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+
+</section>
 </body>
 
-<footer>Collaborators: CallumCheng and madCakes👽👻</footer>
+<footer>Collaborators: CallumCheng and madCakes 👽👻 <script>document.write(new Date().getFullYear());</script></footer>
 </html>
