@@ -1,4 +1,4 @@
-const db = require("../dbConfig");
+const db = require("../dbconfig/init");
 const path = require("path");
 
 class Thought {
